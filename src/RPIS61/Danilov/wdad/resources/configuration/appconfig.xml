@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE appconfig [
+        <!ELEMENT appconfig (rmi)>
+        <!ELEMENT rmi (server, client, classprovider?)>
+        <!ELEMENT server ((registry, bindedobject*)+)>
+        <!ELEMENT registry (createregistry, registryaddress, registryport)>
+        <!ELEMENT client (policypath, usecodebaseonly)>
+        <!ELEMENT createregistry (#PCDATA)> <!-- valid values: “yes”, “no” -->
+        <!ELEMENT registryaddress (#PCDATA)> <!-- valid IP X.X.X.X (X=>0-255)
+or valid host name -->
+        <!ELEMENT registryport (#PCDATA)>
+        <!ELEMENT bindedobject EMPTY>
+        <!ELEMENT policypath (#PCDATA)>
+        <!-- FS depended path (absolute or relative) to *.policy file -->
+        <!ELEMENT usecodebaseonly (#PCDATA)> <!-- valid values: “yes”, “no” -->
+        <!ELEMENT classprovider (#PCDATA)> <!-- valid FS depended path to local
+directory or *jar file, or URL to *.jar file, containing *.class files -->
+        <!ATTLIST bindedobject
+                name CDATA #REQUIRED
+                class CDATA #REQUIRED
+                >
+        ]>
+<appconfig>
+    <rmi>
+        <server>
+            <registry>
+                <createregistry>yes</createregistry>
+                <registryaddress>localhost</registryaddress>
+                <registryport>1099</registryport>
+            </registry>
+        </server>
+        <client>
+            <policypath>client.policy</policypath>
+            <usecodebaseonly>no</usecodebaseonly>
+        </client>
+        <classprovider>http://www.yourhost.free.ru/cp/cp.jar</classprovider>
+    </rmi>
+</appconfig>
