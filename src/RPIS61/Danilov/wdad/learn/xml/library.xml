@@ -1,75 +1,164 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <library>
-    <reader firstname="firstName" secondname="secondName">
+    
+    <reader firstname="Читатель" secondname="0">
         <book>
             <author>
-                <firstname>firstName</firstname>
-                <secondname>secondName</secondname>
+                <firstname>Семен</firstname>
+                <secondname>Грызлов</secondname>
             </author>
-            <name>0book</name>
-            <printyear>1456</printyear>
-            <genre>novel</genre>
+            <name>Новая книга</name>
+            <printyear>1251</printyear>
+            <genre>testeGenre</genre>
         </book>
         <takedate>
-            <day>6</day>
-            <month>5</month>
-            <year>1</year>
+            <day>5</day>
+            <month>4</month>
+            <year>2</year>
         </takedate>
+    </reader>
+    <reader firstname="Читатель" secondname="1">
         <book>
             <author>
-                <firstname>firstName</firstname>
-                <secondname>secondName</secondname>
+                <firstname>Семен</firstname>
+                <secondname>Грызлов</secondname>
             </author>
-            <name>1book</name>
-            <printyear>1456</printyear>
-            <genre>novel</genre>
+            <name>Новая книга</name>
+            <printyear>1251</printyear>
+            <genre>testeGenre</genre>
         </book>
         <takedate>
-            <day>6</day>
-            <month>5</month>
-            <year>1</year>
+            <day>5</day>
+            <month>4</month>
+            <year>2</year>
         </takedate>
+    </reader>
+    <reader firstname="Читатель" secondname="2">
         <book>
             <author>
-                <firstname>firstName</firstname>
-                <secondname>secondName</secondname>
+                <firstname>Семен</firstname>
+                <secondname>Грызлов</secondname>
             </author>
-            <name>2book</name>
-            <printyear>1456</printyear>
-            <genre>novel</genre>
+            <name>Новая книга</name>
+            <printyear>1251</printyear>
+            <genre>testeGenre</genre>
         </book>
         <takedate>
-            <day>6</day>
-            <month>5</month>
-            <year>1</year>
+            <day>5</day>
+            <month>4</month>
+            <year>2</year>
         </takedate>
+    </reader>
+    <reader firstname="Читатель" secondname="3">
         <book>
             <author>
-                <firstname>firstName</firstname>
-                <secondname>secondName</secondname>
+                <firstname>Семен</firstname>
+                <secondname>Грызлов</secondname>
             </author>
-            <name>3book</name>
-            <printyear>1456</printyear>
-            <genre>novel</genre>
+            <name>Новая книга</name>
+            <printyear>1251</printyear>
+            <genre>testeGenre</genre>
         </book>
         <takedate>
-            <day>6</day>
-            <month>5</month>
-            <year>1</year>
+            <day>5</day>
+            <month>4</month>
+            <year>2</year>
         </takedate>
+    </reader>
+    <reader firstname="Читатель" secondname="4">
         <book>
             <author>
-                <firstname>firstName</firstname>
-                <secondname>secondName</secondname>
+                <firstname>Семен</firstname>
+                <secondname>Грызлов</secondname>
             </author>
-            <name>4book</name>
-            <printyear>1456</printyear>
-            <genre>novel</genre>
+            <name>Новая книга</name>
+            <printyear>1251</printyear>
+            <genre>testeGenre</genre>
         </book>
         <takedate>
-            <day>6</day>
-            <month>5</month>
-            <year>1</year>
+            <day>5</day>
+            <month>4</month>
+            <year>2</year>
+        </takedate>
+    </reader>
+    <reader firstname="Читатель" secondname="5">
+        <book>
+            <author>
+                <firstname>Семен</firstname>
+                <secondname>Грызлов</secondname>
+            </author>
+            <name>Новая книга</name>
+            <printyear>1251</printyear>
+            <genre>testeGenre</genre>
+        </book>
+        <takedate>
+            <day>5</day>
+            <month>4</month>
+            <year>2</year>
+        </takedate>
+    </reader>
+    <reader firstname="Читатель" secondname="6">
+        <book>
+            <author>
+                <firstname>Семен</firstname>
+                <secondname>Грызлов</secondname>
+            </author>
+            <name>Новая книга</name>
+            <printyear>1251</printyear>
+            <genre>testeGenre</genre>
+        </book>
+        <takedate>
+            <day>5</day>
+            <month>4</month>
+            <year>2</year>
+        </takedate>
+    </reader>
+    <reader firstname="Читатель" secondname="7">
+        <book>
+            <author>
+                <firstname>Семен</firstname>
+                <secondname>Грызлов</secondname>
+            </author>
+            <name>Новая книга</name>
+            <printyear>1251</printyear>
+            <genre>testeGenre</genre>
+        </book>
+        <takedate>
+            <day>5</day>
+            <month>4</month>
+            <year>2</year>
+        </takedate>
+    </reader>
+    <reader firstname="Читатель" secondname="8">
+        <book>
+            <author>
+                <firstname>Семен</firstname>
+                <secondname>Грызлов</secondname>
+            </author>
+            <name>Новая книга</name>
+            <printyear>1251</printyear>
+            <genre>testeGenre</genre>
+        </book>
+        <takedate>
+            <day>5</day>
+            <month>4</month>
+            <year>2</year>
+        </takedate>
+    </reader>
+    <reader firstname="Читатель" secondname="9">
+        <book>
+            <author>
+                <firstname>Семен</firstname>
+                <secondname>Грызлов</secondname>
+            </author>
+            <name>Новая книга</name>
+            <printyear>1251</printyear>
+            <genre>testeGenre</genre>
+        </book>
+        <takedate>
+            <day>5</day>
+            <month>4</month>
+            <year>2</year>
         </takedate>
     </reader>
 </library>

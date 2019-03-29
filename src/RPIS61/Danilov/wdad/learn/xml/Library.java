@@ -2,8 +2,6 @@ package RPIS61.Danilov.wdad.learn.xml;
 
 import org.w3c.dom.Document;
 
-import javax.xml.transform.TransformerException;
-import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -19,12 +17,12 @@ public class Library {
         this.readers = XMLReader.getReaders(document);
     }
 
-    public void addReader(Reader reader) throws TransformerException, FileNotFoundException {
+    public void addReader(Reader reader) {
         this.readers.add(reader);
         XMLWriter.addReader(reader, document, xmlFilePath);
     }
 
-    public boolean removeReader(Reader reader) throws TransformerException, FileNotFoundException {
+    public boolean removeReader(Reader reader) {
         if (this.readers.remove(reader)) {
             XMLWriter.removeReader(reader, document, xmlFilePath);
             return true;
@@ -32,7 +30,7 @@ public class Library {
         return false;
     }
 
-    public void addBook(Reader reader, Book book) throws TransformerException, FileNotFoundException {
+    public void addBook(Reader reader, Book book)  {
         for (Reader temp:readers){
             if (temp.equals(reader)){
                 temp.addBook(book);
@@ -41,7 +39,7 @@ public class Library {
         }
     }
 
-    public boolean removeBook(Reader reader, Book book) throws TransformerException, FileNotFoundException {
+    public boolean removeBook(Reader reader, Book book) {
         if (reader.removeBook(book)) {
             XMLWriter.removeBook(reader, book, document, xmlFilePath);
             return true;
@@ -50,6 +48,15 @@ public class Library {
 
     public ArrayList<Reader> getReaders(){
         return readers;
+    }
+
+    public Reader getReader(Reader reader){
+        for (Reader r:readers){
+            if (r.equals(reader)){
+                return r;
+            }
+        }
+        return null;
     }
 
     public ArrayList<Book> debtBooks(Reader reader){
@@ -70,7 +77,7 @@ public class Library {
         ArrayList<Book> books = reader.getBooks();
         LocalDate currentDate = LocalDate.now();
         for (Book book:books){
-            if (book.getTakeDate().plusWeeks(2).isAfter(currentDate)){
+            if (book.getTakeDate().plusWeeks(2).isBefore(currentDate)){
                 return true;
             }
         }

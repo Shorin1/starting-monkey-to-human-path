@@ -20,7 +20,6 @@ public abstract class XMLReader {
         try {
             File inputFile = new File(xmlFilePath);
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            factory.setIgnoringElementContentWhitespace(true);
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document document = builder.parse(inputFile);
             document.normalize();
@@ -53,16 +52,17 @@ public abstract class XMLReader {
             Element book = (Element) bookElements.item(i);
             Element takeDateE = (Element) takeDateElements.item(i);
             String name = book.getElementsByTagName("name").item(0).getTextContent();
-            int printYear = Integer.parseInt(book.getElementsByTagName("printyear").item(0).getTextContent());
+            String printYear = book.getElementsByTagName("printyear").item(0).getTextContent();
             String genre = book.getElementsByTagName("genre").item(0).getTextContent();
-            Author author = getAuthor((Element) book.getElementsByTagName("author").item(0));
+            Author author = getAuthor(book);
             LocalDate takedate = getTakeDate(takeDateE);
             books.add(new Book(name, printYear, genre, author, takedate));
         }
         return books;
     }
 
-    private static Author getAuthor(Element author){
+    private static Author getAuthor(Node book){
+        Element author = (Element) book.getChildNodes();
         String firstName = author.getElementsByTagName("firstname").item(0).getTextContent();
         String secondName = author.getElementsByTagName("secondname").item(0).getTextContent();
         return new Author(firstName, secondName);

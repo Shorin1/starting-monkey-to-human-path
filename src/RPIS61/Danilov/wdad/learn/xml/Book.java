@@ -4,12 +4,12 @@ import java.time.LocalDate;
 
 public class Book {
     private String name;
-    private int printYear;
+    private String printYear;
     private String genre;
     private Author author;
     private LocalDate takedate;
 
-    public Book(String name, int printYear, String genre, Author author, LocalDate takedate){
+    public Book(String name, String printYear, String genre, Author author, LocalDate takedate){
         this.author = author;
         this.name = name;
         this.printYear = printYear;
@@ -21,7 +21,7 @@ public class Book {
         return name;
     }
 
-    public int getPrintYear() {
+    public String getPrintYear() {
         return printYear;
     }
 
@@ -41,7 +41,7 @@ public class Book {
     public boolean equals(Object obj){
         Book book = (Book) obj;
         return  ((book.getName().equals(name)) && book.getGenre().equals(genre) &&
-                (book.getPrintYear() == printYear) && book.getTakeDate().equals(takedate)
+                book.getPrintYear().equals(printYear) && book.getTakeDate().equals(takedate)
                 && book.getAuthor().equals(author));
     }
 }

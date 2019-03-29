@@ -7,7 +7,6 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
@@ -16,13 +15,13 @@ import java.time.LocalDate;
 
 public abstract class XMLWriter {
 
-    public static void addReader(Reader reader, Document document, String xmlFilePath) throws TransformerException {
+    public static void addReader(Reader reader, Document document, String xmlFilePath) {
         Node library = document.getFirstChild();
-        library.appendChild(createReader(reader, document));
+        library.appendChild(getReader(reader, document));
         saveXML(document, xmlFilePath);
     }
 
-    public static void removeReader(Reader reader, Document document, String xmlFilePath) throws TransformerException {
+    public static void removeReader(Reader reader, Document document, String xmlFilePath) {
         Node library = document.getFirstChild();
         NodeList nList = document.getElementsByTagName("reader");
         for (int i = 0; i < nList.getLength(); i++){
@@ -36,21 +35,21 @@ public abstract class XMLWriter {
         }
     }
 
-    public static void addBook(Reader reader, Book book, Document document, String xmlFilePath) throws TransformerException {
+    public static void addBook(Reader reader, Book book, Document document, String xmlFilePath)  {
         NodeList nList = document.getElementsByTagName("reader");
         for (int i = 0; i < nList.getLength(); i++) {
             Element element = (Element) nList.item(i);
             if (element.getAttribute("firstname").equals(reader.getFirstName()) &&
                     element.getAttribute("secondname").equals(reader.getSecondName())) {
-                element.appendChild(createBook(book, document));
-                element.appendChild(createTakeDate(book, document));
+                element.appendChild(getBook(book, document));
+                element.appendChild(getTakeDate(book, document));
                 saveXML(document, xmlFilePath);
                 return;
             }
         }
     }
 
-    public static void removeBook(Reader reader, Book book, Document document, String xmlFilePath) throws TransformerException {
+    public static void removeBook(Reader reader, Book book, Document document, String xmlFilePath) {
         NodeList nList = document.getElementsByTagName("reader");
         for (int i = 0; i < nList.getLength(); i++){
             Element readerE = (Element) nList.item(i);
@@ -92,20 +91,20 @@ public abstract class XMLWriter {
     }
 
 
-    private static Element createReader(Reader reader, Document document){//Переименовать createReader
+    private static Element getReader(Reader reader, Document document){
         Element readerElement = document.createElement("reader");
         readerElement.setAttribute("firstname", reader.getFirstName());
         readerElement.setAttribute("secondname", reader.getSecondName());
         for(Book book:reader.getBooks()){
-            readerElement.appendChild(createBook(book, document));
-            readerElement.appendChild(createTakeDate(book, document));
+            readerElement.appendChild(getBook(book, document));
+            readerElement.appendChild(getTakeDate(book, document));
         }
         return readerElement;
     }
 
-    private static Element createBook(Book book, Document document){
+    private static Element getBook(Book book, Document document){
         Element bookElement = document.createElement("book");
-        bookElement.appendChild(createAuthor(book, document));
+        bookElement.appendChild(getAuthor(book, document));
         Element name = document.createElement("name");
         name.setTextContent(book.getName());
         bookElement.appendChild(name);
@@ -118,7 +117,7 @@ public abstract class XMLWriter {
         return bookElement;
     }
 
-    private static Element createAuthor(Book book, Document document){
+    private static Element getAuthor(Book book, Document document){
         Element author = document.createElement("author");
         Element firstName = document.createElement("firstname");
         firstName.setTextContent(book.getAuthor().getFirstName());
@@ -129,7 +128,7 @@ public abstract class XMLWriter {
         return author;
     }
 
-    private static Element createTakeDate(Book book, Document document){
+    private static Element getTakeDate(Book book, Document document){
         Element takeDate = document.createElement("takedate");
         Element day = document.createElement("day");
         LocalDate ld = book.getTakeDate();
@@ -144,11 +143,15 @@ public abstract class XMLWriter {
         return takeDate;
     }
 
-    private static void saveXML(Document document, String xmlFilePath) throws TransformerException {
+    private static void saveXML(Document document, String xmlFilePath) {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        Transformer transformer = transformerFactory.newTransformer();
-        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-        transformer.transform(new DOMSource(document), new StreamResult(new File(xmlFilePath)));
+        try {
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.transform(new DOMSource(document), new StreamResult(new File(xmlFilePath)));
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
