@@ -10,7 +10,7 @@ import java.rmi.server.UnicastRemoteObject;
 public class Server {
 
     private static final String XML_FILE_PATH = "src\\wdad\\learn\\xml\\library.xml";
-    private static final String BIND_NAME = "XmlDataManager";
+    private static final String BIND_NAME = "DataManager";
 
     private static Registry registry;
 
@@ -39,7 +39,7 @@ public class Server {
             XmlDataManagerImpl xdmi = new XmlDataManagerImpl(XML_FILE_PATH);
             UnicastRemoteObject.exportObject(xdmi, 0);
             registry.bind(BIND_NAME, xdmi);
-            pm.addBindedObject(BIND_NAME, "XmlDataManager");
+            pm.addBindedObject(BIND_NAME, "DataManager");
         } catch (Exception e) {
             e.printStackTrace();
         }

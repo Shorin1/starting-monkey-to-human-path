@@ -39,7 +39,7 @@ public class XmlDataManagerImpl implements XmlDataManager, Serializable {
         Book[] books = (Book[]) r.getBooks().toArray();
         HashMap<Book, LocalDate> result = new HashMap<>();
         for (Book b:books){
-            result.put(b, b.getTakeDate());
+            result.put(b, b.getTakeDate().toLocalDate());
         }
         return result;
     }

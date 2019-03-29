@@ -1,21 +1,31 @@
 package RPIS61.Danilov.wdad.learn.xml;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Reader {
+    private int ID;
     private String firstName;
     private String secondName;
+    private Date birthDay;
     private ArrayList<Book> books;
 
-    public Reader(String firstName, String secondName){
-        this(firstName, secondName, new ArrayList<>());
+    public Reader(){
+        this(null, null);
     }
 
-    public Reader(String firstName, String secondName, ArrayList<Book> books){
+    public Reader(String firstName, String secondName){
+        this(firstName, secondName, null, new ArrayList<>());
+    }
+
+    public Reader(String firstName, String secondName, Date birthDay, ArrayList<Book> books){
         this.firstName = firstName;
         this.secondName = secondName;
+        this.birthDay = birthDay;
         this.books = books;
     }
+
+    public int getID(){ return ID; }
 
     public String getFirstName(){
         return firstName;
@@ -23,6 +33,26 @@ public class Reader {
 
     public String getSecondName(){
         return secondName;
+    }
+
+    public Date getBirthDay() {
+        return birthDay;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public void setBirthDay(Date birthDay) {
+        this.birthDay = birthDay;
     }
 
     public void addBook(Book book){
@@ -36,6 +66,8 @@ public class Reader {
     public ArrayList<Book> getBooks(){
         return this.books;
     }
+
+    public void setBooks(ArrayList<Book> books) { this.books = books; }
 
     @Override
     public boolean equals(Object obj){

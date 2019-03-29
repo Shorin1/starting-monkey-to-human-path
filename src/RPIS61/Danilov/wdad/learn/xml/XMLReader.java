@@ -11,6 +11,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -48,15 +49,22 @@ public abstract class XMLReader {
         NodeList bookElements = reader.getElementsByTagName("book");
         NodeList takeDateElements = reader.getElementsByTagName("takedate");
         ArrayList<Book> books = new ArrayList<>();
+        Book book;
+        Genre genre;
         for (int i = 0; i < bookElements.getLength(); i++){
-            Element book = (Element) bookElements.item(i);
+            book = new Book();
+            genre = new Genre();
+            Element bookElement = (Element) bookElements.item(i);
             Element takeDateE = (Element) takeDateElements.item(i);
-            String name = book.getElementsByTagName("name").item(0).getTextContent();
-            String printYear = book.getElementsByTagName("printyear").item(0).getTextContent();
-            String genre = book.getElementsByTagName("genre").item(0).getTextContent();
-            Author author = getAuthor(book);
+            book.setName(bookElement.getElementsByTagName("name").item(0).getTextContent());
+            book.setPrintYear(Integer.parseInt(bookElement.getElementsByTagName("printyear").item(0).getTextContent()));
+            genre.setName(bookElement.getElementsByTagName("genre").item(0).getTextContent());
+            book.setGenre(genre);
+            Author author = getAuthor(bookElement);
+            book.setAuthor(author);
             LocalDate takedate = getTakeDate(takeDateE);
-            books.add(new Book(name, printYear, genre, author, takedate));
+            book.setTakedate(Date.valueOf(takedate));
+            books.add(book);
         }
         return books;
     }

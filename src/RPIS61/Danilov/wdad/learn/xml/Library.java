@@ -77,7 +77,7 @@ public class Library {
         ArrayList<Book> books = reader.getBooks();
         LocalDate currentDate = LocalDate.now();
         for (Book book:books){
-            if (book.getTakeDate().plusWeeks(2).isBefore(currentDate)){
+            if (book.getTakeDate().toLocalDate().plusWeeks(2).isBefore(currentDate)){
                 return true;
             }
         }

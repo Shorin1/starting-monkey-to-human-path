@@ -1,7 +1,7 @@
 package RPIS61.Danilov.wdad.learn.rmi;
 
 import RPIS61.Danilov.wdad.data.managers.PreferencesManager;
-import RPIS61.Danilov.wdad.learn.XmlDataManager;
+import RPIS61.Danilov.wdad.data.managers.DataManager;
 import RPIS61.Danilov.wdad.utils.PreferencesManagerConstants;
 
 import java.rmi.registry.LocateRegistry;
@@ -20,7 +20,7 @@ public class Client {
 
         try {
             Registry registry = LocateRegistry.getRegistry(address, port);
-            XmlDataManager service = (XmlDataManager) registry.lookup("XmlDataManager");
+            DataManager service = (DataManager) registry.lookup("DataManager");
         } catch (Exception e){
             e.printStackTrace();
         }

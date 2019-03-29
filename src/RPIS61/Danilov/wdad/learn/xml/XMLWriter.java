@@ -11,6 +11,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
+import java.sql.Date;
 import java.time.LocalDate;
 
 public abstract class XMLWriter {
@@ -112,7 +113,7 @@ public abstract class XMLWriter {
         printyear.setTextContent(String.valueOf(book.getPrintYear()));
         bookElement.appendChild(printyear);
         Element genre = document.createElement("genre");
-        genre.setTextContent(book.getGenre());
+        genre.setTextContent(book.getGenre().toString());
         bookElement.appendChild(genre);
         return bookElement;
     }
@@ -131,11 +132,11 @@ public abstract class XMLWriter {
     private static Element getTakeDate(Book book, Document document){
         Element takeDate = document.createElement("takedate");
         Element day = document.createElement("day");
-        LocalDate ld = book.getTakeDate();
-        day.setTextContent(String.valueOf(ld.getDayOfMonth()));
+        Date ld = book.getTakeDate();
+        day.setTextContent(String.valueOf(ld.toLocalDate().getDayOfMonth()));
         takeDate.appendChild(day);
         Element month = document.createElement("month");
-        month.setTextContent(String.valueOf(ld.getMonthValue()));
+        month.setTextContent(String.valueOf(ld.toLocalDate().getMonthValue()));
         takeDate.appendChild(month);
         Element year = document.createElement("year");
         year.setTextContent(String.valueOf(ld.getYear()));
