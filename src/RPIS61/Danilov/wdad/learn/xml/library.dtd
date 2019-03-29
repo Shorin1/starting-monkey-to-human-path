@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!ELEMENT library (reader*)>
+        <!ELEMENT reader ((book, takedate)*)>
+        <!ELEMENT book (author,name,printyear,genre)>
+        <!ELEMENT author (firstname,secondname)>
+        <!ELEMENT firstname (#PCDATA)>
+        <!ELEMENT secondname (#PCDATA)>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT printyear (#PCDATA)>
+        <!ELEMENT genre EMPTY>
+        <!ELEMENT takedate EMPTY>
+
+        <!ATTLIST reader firstname CDATA #IMPLIED secondname CDATA #REQUIRED >
+        <!ATTLIST genre value ( novel | ode | opus | article | story | play | sketch | epopee | epos | essay | other)"other">
+        <!ATTLIST takedate day CDATA #REQUIRED month CDATA #REQUIRED year CDATA #REQUIRED>
