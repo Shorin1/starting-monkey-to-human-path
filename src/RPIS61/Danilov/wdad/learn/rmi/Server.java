@@ -9,7 +9,7 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class Server {
 
-    private static final String XML_FILE_PATH = "src\\wdad\\learn\\xml\\library.xml";
+    private static final String XML_FILE_PATH = "src\\RPIS61\\Danilov\\wdad\\learn\\xml\\library.xml";
     private static final String BIND_NAME = "XmlDataManager";
 
     private static Registry registry;

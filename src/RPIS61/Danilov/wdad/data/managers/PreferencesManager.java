@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class PreferencesManager {
-    private static final String XML_FILE_PATH = "src\\wdad\\resources\\configuration\\appconfig.xml";
+    private static final String XML_FILE_PATH = "src\\RPIS61\\Danilov\\wdad\\resources\\configuration\\appconfig.xml";
 
     private Document document;
     private Properties properties;
