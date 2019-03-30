@@ -2,10 +2,11 @@ package RPIS61.Danilov.wdad.learn.xml;
 
 import org.w3c.dom.Document;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Library {
+public class Library implements Serializable {
     private ArrayList<Reader> readers;
     private Document document;
     private String xmlFilePath;

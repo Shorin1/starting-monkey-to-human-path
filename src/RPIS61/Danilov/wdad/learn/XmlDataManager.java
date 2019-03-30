@@ -13,6 +13,10 @@ public interface XmlDataManager extends Remote {
 
     List<Reader> negligentReaders() throws RemoteException;
 
+    List<Reader> getReaders() throws RemoteException;
+
+    void addReader(Reader reader) throws RemoteException;
+
     void removeBook(Reader reader, Book book) throws RemoteException;
 
     void addBook(Reader reader, Book book) throws RemoteException;

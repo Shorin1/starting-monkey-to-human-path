@@ -1,8 +1,9 @@
 package RPIS61.Danilov.wdad.learn.xml;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Book {
+public class Book implements Serializable {
     private String name;
     private String printYear;
     private String genre;

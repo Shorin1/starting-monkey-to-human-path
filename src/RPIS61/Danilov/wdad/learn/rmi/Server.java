@@ -33,6 +33,7 @@ public class Server {
             }
         } catch (Exception e){
             e.printStackTrace();
+            return;
         }
 
         try {
@@ -42,6 +43,7 @@ public class Server {
             pm.addBindedObject(BIND_NAME, "XmlDataManager");
         } catch (Exception e) {
             e.printStackTrace();
+            return;
         }
 
         System.out.println("Server working...");

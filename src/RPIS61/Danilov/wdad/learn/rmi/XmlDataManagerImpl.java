@@ -19,6 +19,12 @@ public class XmlDataManagerImpl implements XmlDataManager, Serializable {
     }
 
     @Override
+    public void addReader (Reader reader) { this.library.addReader(reader); }
+
+    @Override
+    public List<Reader> getReaders() { return this.library.getReaders(); }
+
+    @Override
     public List<Reader> negligentReaders() {
         return this.library.negligentReader();
     }

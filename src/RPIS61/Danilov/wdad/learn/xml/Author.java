@@ -1,6 +1,8 @@
 package RPIS61.Danilov.wdad.learn.xml;
 
-public class Author {
+import java.io.Serializable;
+
+public class Author implements Serializable {
     private String firstName;
     private String secondName;
 

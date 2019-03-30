@@ -1,18 +1,72 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <appconfig>
+                
+    
+    
     <rmi>
+                                
+        
+        
         <server>
+                                                
+            
+            
             <registry>
+                                                                
+                
+                
                 <createregistry>yes</createregistry>
+                                                                
+                
+                
                 <registryaddress>localhost</registryaddress>
-                <registryport>1099</registryport>
+                                                                
+                
+                
+                <registryport>1999</registryport>
+                                                            
+            
+            
             </registry>
+                                                
+            
+            
+            <bindedobject class="XmlDataManager" name="XmlDataManager"/>
+                                            
+            
+            
+            <bindedobject class="XmlDataManager" name="XmlDataManager"/>
+                                
+            
+            <bindedobject class="XmlDataManager" name="XmlDataManager"/>
+                    
             <bindedobject class="XmlDataManager" name="XmlDataManager"/>
         </server>
+                                
+        
+        
         <client>
+                                                
+            
+            
             <policypath>client.policy</policypath>
+                                                
+            
+            
             <usecodebaseonly>no</usecodebaseonly>
+                                            
+        
+        
         </client>
+                                
+        
+        
         <classprovider>http://www.yourhost.free.ru/cp/cp.jar</classprovider>
+                            
+    
+    
     </rmi>
+            
+
+
 </appconfig>

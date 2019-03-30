@@ -1,8 +1,9 @@
 package RPIS61.Danilov.wdad.learn.xml;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Reader {
+public class Reader implements Serializable {
     private String firstName;
     private String secondName;
     private ArrayList<Book> books;
